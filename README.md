@@ -1,4 +1,4 @@
-ember-extra-actions
+ember-member-actions
 ==============================================================================
 
 [Short description of the addon.]
@@ -16,7 +16,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-extra-actions
+ember install ember-member-actions
 ```
 
 

@@ -1,0 +1,30 @@
+<h1>Demo Application</h1>
+
+<h2>Model: Animal</h2>
+
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>UUID</th>
+    <th>Memeber Action</th>
+  </thead>
+  <tbody>
+    {{#each @model as |animal|}}
+      <tr>
+        <td>{{animal.id}}</td>
+        <td>{{animal.name}}</td>
+        <td>{{animal.type}}</td>
+        <td>{{animal.uuid}}</td>
+        <td>
+          <button
+              type="button"
+              {{on "click" (fn this.click animal)}}>
+            regenerate
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

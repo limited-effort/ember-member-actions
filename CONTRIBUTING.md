@@ -3,7 +3,7 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd ember-extra-actions`
+* `cd ember-member-actions`
 * `npm install`
 
 ## Linting

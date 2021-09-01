@@ -3,7 +3,6 @@ import { setupTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { assert, module, test } from 'qunit';
-import FakeLogger from 'dummy/helpers/fake-logger';
 
 module('Integration | Utility | member-action | #member', function (hooks) {
   setupTest(hooks);
@@ -20,10 +19,17 @@ module('Integration | Utility | member-action | #member', function (hooks) {
     sinon.restore();
   });
 
-  test('it passes the response to the supplied method', function () {
-    sinon.mock(FakeLogger.prototype).expects('log').atLeast(1);
-    this.model.callWithNothing();
-    FakeLogger.prototype.log.verify();
+  test('it passes the response to the supplied method', function (a) {
+    const done = a.async();
+    const fake = sinon.fake();
+    const fakeLogger = { log: fake };
+    this.model.logger = fakeLogger;
+
+    this.model.callWithNothing().then(() => {
+      assert.equal(fake.callCount, 1);
+      assert.equal(fake.lastCall.args[0].data.type, 'animals');
+      done();
+    });
   });
 
   module('=> with argument :path', function () {

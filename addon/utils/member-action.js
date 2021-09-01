@@ -5,7 +5,7 @@ const _memberAction = function (
   object,
   property,
   descriptor,
-  { path, verb = 'GET'} = {}
+  { path, verb = 'GET' } = {}
 ) {
   const action = function () {
     const url = buildURL({
@@ -20,7 +20,7 @@ const _memberAction = function (
       payload = this.serialize();
     }
 
-    adapterFromModel(this)
+    return adapterFromModel(this)
       .ajax(url, httpVerb, payload)
       .then((resp) => {
         if (descriptor.value) {

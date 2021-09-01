@@ -7,6 +7,17 @@ export default class Animal extends Model {
   @attr type;
   @attr uuid;
 
+  logger;
+
+  constructor() {
+    super(...arguments);
+    this.logger = new FakeLogger();
+  }
+
+  set logger(value) {
+    this.logger = value;
+  }
+
   @member({ verb: 'POST' })
   regenerate(response) {
     this.uuid = response.data.attributes.uuid;
@@ -14,16 +25,16 @@ export default class Animal extends Model {
 
   @member({ path: 'foo' })
   callWithPath(response) {
-    new FakeLogger().log(response);
+    this.logger.log(response);
   }
 
   @member({ verb: 'POST' })
   callWithVerb(response) {
-    new FakeLogger().log(response);
+    this.logger.log(response);
   }
 
   @member
   callWithNothing(response) {
-    new FakeLogger().log(response);
+    this.logger.log(response);
   }
 }

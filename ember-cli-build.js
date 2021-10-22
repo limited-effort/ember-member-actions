@@ -1,6 +1,14 @@
 'use strict';
 
 const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
+const { V1Addon } = require('@embroider/compat');
+const { forceIncludeModule } = require('@embroider/compat/src/compat-utils');
+
+class EmberDataCompatAdapter extends V1Addon {
+  get packageMeta() {
+    return forceIncludeModule(super.packageMeta, './-private');
+  }
+}
 
 module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
@@ -16,6 +24,14 @@ module.exports = function (defaults) {
 
   const { maybeEmbroider } = require('@embroider/test-setup');
   return maybeEmbroider(app, {
+    compatAdapters: new Map([
+      ['@ember-data/model', EmberDataCompatAdapter],
+      ['@ember-data/record-data', EmberDataCompatAdapter],
+    ]),
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticComponents: true,
+    staticHelpers: true,
     skipBabel: [
       {
         package: 'qunit',

@@ -1,6 +1,6 @@
 {
   "name": "ember-member-actions",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Non-CRUD Member Actions",
   "keywords": [
     "ajax",
@@ -12,7 +12,7 @@
     "request"
   ],
   "repository": "https://github.com/limited-effort/ember-member-actions",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "Matthew Howes",
   "directories": {
     "test": "tests"

@@ -1,15 +1,20 @@
 {
   "name": "ember-member-actions",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.1.0",
+  "description": "Non-CRUD Member Actions",
   "keywords": [
-    "ember-addon"
+    "ajax",
+    "data",
+    "ember-addon",
+    "ember",
+    "member actions",
+    "model",
+    "request"
   ],
-  "repository": "",
+  "repository": "https://github.com/limited-effort/ember-member-actions",
   "license": "MIT",
-  "author": "",
+  "author": "Matthew Howes",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "scripts": {

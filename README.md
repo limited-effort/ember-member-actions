@@ -52,7 +52,7 @@ To add a member action to your models just add the `@member` decorator to your f
 
 ```javascript
 import Model, { attr } from '@ember-data/model';
-import { member } from 'dummy/utils/member-action';
+import { member } from 'ember-memeber-actions';
 
 export default class Animal extends Model {
   @attr name;
